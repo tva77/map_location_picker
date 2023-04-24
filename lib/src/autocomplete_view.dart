@@ -490,7 +490,7 @@ class PlacesAutocomplete extends StatelessWidget {
                           )
                         : suffixIcon,
                   ),
-              name: 'Search',
+              name: 'Pesquisar',
               controller: initialValue == null ? textController.value : null,
               selectionToTextTransformer: (result) {
                 return result.description ?? "";

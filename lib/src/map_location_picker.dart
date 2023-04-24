@@ -189,7 +189,7 @@ class MapLocationPicker extends StatefulWidget {
     this.bottomCardColor,
     this.onSuggestionSelected,
     required this.onNext,
-    this.currentLatLng = const LatLng(28.8993468, 76.6250249),
+    this.currentLatLng = _getLocation(),
     this.showBackButton = true,
     this.canPopOnNextButtonTaped = false,
     this.backButton,
@@ -549,5 +549,15 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
         ],
       ),
     );
+  }
+
+  void _getLocation() async {
+    try {
+      Position position = await _getCurrentLocation();
+      // print('Latitude: ${position.latitude}, Longitude: ${position.longitude}');
+      return Location(lat: position.latitude, lng: position.longitude);
+    } catch (error) {
+      print(error);
+    }
   }
 }
