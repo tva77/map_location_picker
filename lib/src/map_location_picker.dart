@@ -179,13 +179,13 @@ class MapLocationPicker extends StatefulWidget {
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
     this.borderRadius = const BorderRadius.all(Radius.circular(12)),
-    this.searchHintText = "Start typing to search",
+    this.searchHintText = "Comece a digitar para pesquisar",
     this.bottomCardShape = const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
     this.bottomCardMargin = const EdgeInsets.fromLTRB(8, 8, 8, 16),
     this.bottomCardIcon = const Icon(Icons.send),
-    this.bottomCardTooltip = "Continue with this location",
+    this.bottomCardTooltip = "Continuar com este local",
     this.bottomCardColor,
     this.onSuggestionSelected,
     required this.onNext,
@@ -194,7 +194,7 @@ class MapLocationPicker extends StatefulWidget {
     this.canPopOnNextButtonTaped = false,
     this.backButton,
     this.showMoreOptions = true,
-    this.dialogTitle = 'You can also use the following options',
+    this.dialogTitle = 'Você também pode usar as seguintes opções',
     this.placesHttpClient,
     this.placesApiHeaders,
     this.placesBaseUrl,
@@ -226,7 +226,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
   late LatLng _initialPosition = const LatLng(28.8993468, 76.6250249);
 
   /// initial address text
-  late String _address = "Tap on map to get address";
+  late String _address = "Toque no mapa para obter o endereço";
 
   /// Map type (default: MapType.normal)
   late MapType _mapType = MapType.normal;
@@ -280,7 +280,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(response.errorMessage ??
-                  "Address not found, something went wrong!"),
+                  "Endereço não encontrado, algo deu errado!"),
             ),
           );
         }
@@ -424,7 +424,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                   child: Padding(
                     padding: const EdgeInsets.all(4.5),
                     child: PopupMenuButton(
-                      tooltip: 'Map Type',
+                      tooltip: 'Tipo de mapa',
                       initialValue: _mapType,
                       icon: Icon(
                         Icons.layers,
@@ -442,15 +442,15 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                         ),
                         PopupMenuItem(
                           value: MapType.hybrid,
-                          child: Text('Hybrid'),
+                          child: Text('Híbrido'),
                         ),
                         PopupMenuItem(
                           value: MapType.satellite,
-                          child: Text('Satellite'),
+                          child: Text('Satélite'),
                         ),
                         PopupMenuItem(
                           value: MapType.terrain,
-                          child: Text('Terrain'),
+                          child: Text('Terreno'),
                         ),
                       ],
                     ),
@@ -460,7 +460,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: FloatingActionButton(
-                  tooltip: 'My Location',
+                  tooltip: 'Minha localização',
                   backgroundColor: Theme.of(context).primaryColor,
                   foregroundColor: Theme.of(context).colorScheme.onPrimary,
                   onPressed: () async {
@@ -526,7 +526,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                               ),
                               actions: [
                                 TextButton(
-                                  child: const Text('Cancel'),
+                                  child: const Text('Cancelar'),
                                   onPressed: () {
                                     Navigator.pop(context);
                                   },
@@ -537,7 +537,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                         },
                         child: Chip(
                           label: Text(
-                            "Tap to show ${(_geocodingResultList.length - 1)} more result options",
+                            "Toque para mostrar ${(_geocodingResultList.length - 1)} mais opções de resultado",
                           ),
                         ),
                       ),

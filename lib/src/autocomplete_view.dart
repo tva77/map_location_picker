@@ -353,7 +353,7 @@ class PlacesAutocomplete extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
     this.borderRadius = const BorderRadius.all(Radius.circular(12)),
-    this.searchHintText = "Start typing to search",
+    this.searchHintText = "Comece a digitar para pesquisar",
     this.showBackButton = true,
     this.backButton,
     this.placesHttpClient,
@@ -440,7 +440,7 @@ class PlacesAutocomplete extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(response.errorMessage ??
-                  "Address not found, something went wrong!"),
+                  "Endereço não encontrado, algo deu errado!"),
             ),
           );
         }
