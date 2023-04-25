@@ -303,7 +303,15 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
     Position position = await Geolocator.getCurrentPosition(
       desiredAccuracy: widget.desiredAccuracy,
     );
-    LatLng latLng = LatLng(position.latitude, position.longitude);
+    LatLng latLng =
+        LatLng(position.latitude, position.longitude);
+    _initialPosition = latLng;
+    final controller = await _controller.future;
+    controller.animateCamera(
+        CameraUpdate.newCameraPosition(cameraPosition()));
+    _decodeAddress(Location(
+        lat: position.latitude, lng: position.longitude));
+    // setState(() {});
     _initialPosition = latLng;
     _mapType = widget.mapType;
     _searchController = widget.searchController ?? _searchController;
