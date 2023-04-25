@@ -298,8 +298,13 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
   }
 
   @override
-  void initState() {
-    _initialPosition = widget.currentLatLng ?? _initialPosition;
+  void initState() async {
+    await Geolocator.requestPermission();
+    Position position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: widget.desiredAccuracy,
+    );
+    LatLng latLng = LatLng(position.latitude, position.longitude);
+    _initialPosition = widget.currentLatLng ?? latLng;
     _mapType = widget.mapType;
     _searchController = widget.searchController ?? _searchController;
     super.initState();
@@ -401,9 +406,9 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                     return;
                   }
                   await Geolocator.requestPermission();
-                    Position position = await Geolocator.getCurrentPosition(
-                      desiredAccuracy: widget.desiredAccuracy,
-                    );
+                  Position position = await Geolocator.getCurrentPosition(
+                    desiredAccuracy: widget.desiredAccuracy,
+                  );
                   LatLng latLng = LatLng(position.latitude, position.longitude);
                   _initialPosition = latLng;
                   // _initialPosition = 
