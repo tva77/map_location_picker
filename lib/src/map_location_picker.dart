@@ -400,10 +400,17 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                     logger.e("placesDetails is null");
                     return;
                   }
-                  _initialPosition = LatLng(
-                    placesDetails.result.geometry?.location.lat ?? 0,
-                    placesDetails.result.geometry?.location.lng ?? 0,
-                  );
+                  await Geolocator.requestPermission();
+                    Position position = await Geolocator.getCurrentPosition(
+                      desiredAccuracy: widget.desiredAccuracy,
+                    );
+                  LatLng latLng = LatLng(position.latitude, position.longitude);
+                  _initialPosition = latLng;
+                  // _initialPosition = 
+                  // LatLng(
+                  //   placesDetails.result.geometry?.location.lat ?? 0,
+                  //   placesDetails.result.geometry?.location.lng ?? 0,
+                  // );
                   final controller = await _controller.future;
                   controller.animateCamera(
                       CameraUpdate.newCameraPosition(cameraPosition()));
