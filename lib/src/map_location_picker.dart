@@ -304,7 +304,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
       desiredAccuracy: widget.desiredAccuracy,
     );
     LatLng latLng = LatLng(position.latitude, position.longitude);
-    _initialPosition = widget.currentLatLng ?? latLng;
+    _initialPosition = latLng;
     _mapType = widget.mapType;
     _searchController = widget.searchController ?? _searchController;
     super.initState();
@@ -411,7 +411,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                   );
                   LatLng latLng = LatLng(position.latitude, position.longitude);
                   _initialPosition = latLng;
-                  // _initialPosition = 
+                  // _initialPosition =
                   // LatLng(
                   //   placesDetails.result.geometry?.location.lat ?? 0,
                   //   placesDetails.result.geometry?.location.lng ?? 0,
