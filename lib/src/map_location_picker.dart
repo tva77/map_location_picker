@@ -425,50 +425,50 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                 },
               ),
               const Spacer(),
-              Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Card(
-                  color: Theme.of(context).primaryColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(360),
-                  ),
-                  elevation: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.5),
-                    child: PopupMenuButton(
-                      tooltip: 'Tipo de mapa',
-                      initialValue: _mapType,
-                      icon: Icon(
-                        Icons.layers,
-                        color: Theme.of(context).colorScheme.onPrimary,
-                      ),
-                      onSelected: (MapType mapType) {
-                        setState(() {
-                          _mapType = mapType;
-                        });
-                      },
-                      itemBuilder: (context) => const [
-                        PopupMenuItem(
-                          value: MapType.normal,
-                          child: Text('Normal'),
-                        ),
-                        PopupMenuItem(
-                          value: MapType.hybrid,
-                          child: Text('Híbrido'),
-                        ),
-                        PopupMenuItem(
-                          value: MapType.satellite,
-                          child: Text('Satélite'),
-                        ),
-                        PopupMenuItem(
-                          value: MapType.terrain,
-                          child: Text('Terreno'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.all(5.0),
+              //   child: Card(
+              //     color: Theme.of(context).primaryColor,
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(360),
+              //     ),
+              //     elevation: 5,
+              //     child: Padding(
+              //       padding: const EdgeInsets.all(4.5),
+              //       child: PopupMenuButton(
+              //         tooltip: 'Tipo de mapa',
+              //         initialValue: _mapType,
+              //         icon: Icon(
+              //           Icons.layers,
+              //           color: Theme.of(context).colorScheme.onPrimary,
+              //         ),
+              //         onSelected: (MapType mapType) {
+              //           setState(() {
+              //             _mapType = mapType;
+              //           });
+              //         },
+              //         itemBuilder: (context) => const [
+              //           PopupMenuItem(
+              //             value: MapType.normal,
+              //             child: Text('Normal'),
+              //           ),
+              //           PopupMenuItem(
+              //             value: MapType.hybrid,
+              //             child: Text('Híbrido'),
+              //           ),
+              //           PopupMenuItem(
+              //             value: MapType.satellite,
+              //             child: Text('Satélite'),
+              //           ),
+              //           PopupMenuItem(
+              //             value: MapType.terrain,
+              //             child: Text('Terreno'),
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //   ),
+              // ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: FloatingActionButton(
