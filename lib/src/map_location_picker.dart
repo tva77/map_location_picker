@@ -298,7 +298,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
   }
 
   @override
-  void initState() async {
+  void initState()  {
     // await Geolocator.requestPermission();
     // Position position = await Geolocator.getCurrentPosition(
     //   desiredAccuracy: widget.desiredAccuracy,
