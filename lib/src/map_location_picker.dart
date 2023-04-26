@@ -298,24 +298,25 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
   }
 
   @override
-  void initState()  {
-    // await Geolocator.requestPermission();
-    // Position position = await Geolocator.getCurrentPosition(
-    //   desiredAccuracy: widget.desiredAccuracy,
-    // );
-    // LatLng latLng =
-    //     LatLng(position.latitude, position.longitude);
-    // _initialPosition = latLng;
-    // final controller = await _controller.future;
-    // controller.animateCamera(
-    //     CameraUpdate.newCameraPosition(cameraPosition()));
-    // _decodeAddress(Location(
-    //     lat: position.latitude, lng: position.longitude));
-    // // setState(() {});
-    // _initialPosition = latLng;
+  void initState() {
     _mapType = widget.mapType;
     _searchController = widget.searchController ?? _searchController;
+    setInitialLocation();
     super.initState();
+  }
+
+  void setInitialLocation() async {
+    await Geolocator.requestPermission();
+    Position position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: widget.desiredAccuracy,
+    );
+    LatLng latLng = LatLng(position.latitude, position.longitude);
+    _initialPosition = latLng;
+    final controller = await _controller.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(cameraPosition()));
+    _decodeAddress(Location(lat: position.latitude, lng: position.longitude));
+    // setState(() {});
+    _initialPosition = latLng;
   }
 
   @override
