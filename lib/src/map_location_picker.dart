@@ -315,7 +315,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
     final controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(cameraPosition()));
     _decodeAddress(Location(lat: position.latitude, lng: position.longitude));
-    // setState(() {});
+    setState(() {});
     _initialPosition = latLng;
   }
 
